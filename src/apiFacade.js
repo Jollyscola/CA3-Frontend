@@ -64,6 +64,14 @@ class ApiFacade {
         console.log("3");
         return fetch(URL + "/api/info/admin", options).then(handleHttpErrors);
     }
+
+    getLargeDataPeople = async (start, end, sortStr) => {
+        const options = this.makeOptions("GET", true)
+        const res = await fetch(URL + `/api/largepeople/?start=${start}&end=${end}${sortStr}`, options)
+        var u = URL + `/api/largepeople/?start=${start}&end=${end}${sortStr}`
+        console.log(u)
+        return await (handleHttpErrors(res))
+    }
 }
 
 
